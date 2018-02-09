@@ -22,5 +22,6 @@ train.isnull().sum()
 na_list = train.columns[train.isnull().any()].tolist()
 train_na = train[na_list]
 train_na.isnull().sum()
-train[train[:,'DG4']]
-train[train['MT5'].isnull()]
+
+#%% Subset df that only includes columns with no NA
+train_a = train.drop[na_list]
