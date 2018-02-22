@@ -38,8 +38,7 @@ train_df = train[df_list]
 #%% Check categorical columns
 train_df.select_dtypes(exclude=["number"])
 
-#%% Try imputing the missing values with the mean for each column
-#train_imputed = train_df.fillna(train_df.mean(), inplace=True)
+#%% Try imputing the missing values with the most frequently appeared value for each column
 train_tf = train_df.apply(lambda x:x.fillna(x.value_counts().index[0]))
 # Check for NA
 train_tf.isnull().sum()
