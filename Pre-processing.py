@@ -7,13 +7,13 @@ WiDS Processing Script
 #%% Import
 import pandas as pd
 import numpy as np
-import scipy
-import matplotlib.pyplot as plt
-from sklearn.preprocessing import Imputer
+from sklearn.model_selection import train_test_split
 
+########################################################
+############### Train DATA #############################
+########################################################
 #%% Load in data
 train = pd.read_csv('//Files.umn.edu/cse/UmSaveDocs/nguy3409/Documents/train.csv')
-test = pd.read_csv('//Files.umn.edu/cse/UmSaveDocs/nguy3409/Documents/test.csv')
 data_dict = pd.read_csv('//Files.umn.edu/cse/UmSaveDocs/nguy3409/Documents/WiDS_dict.csv')
 
 # Get list of variable names
@@ -42,3 +42,20 @@ train_df.select_dtypes(exclude=["number"])
 train_tf = train_df.apply(lambda x:x.fillna(x.value_counts().index[0]))
 # Check for NA
 train_tf.isnull().sum()
+
+########################################################
+############### TEST DATA ##############################
+########################################################
+#%% Load in data
+test = pd.read_csv('//Files.umn.edu/cse/UmSaveDocs/nguy3409/Documents/test.csv')
+# Subset columns that match training data
+tst_list = df_list.remove('is_female')
+test = test[df_list]
+# Impute missing data with the most frequently appeared value for each column
+test_tf = test.apply(lambda x:x.fillna(x.value_counts().index[0]))
+
+#######################################################
+########## Write output into csv files ################
+#######################################################
+train_tf.to_csv('trainpp.csv', index=None)
+test_tf.to_csv('testpp.csv', index=None)
