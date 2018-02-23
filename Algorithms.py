@@ -76,8 +76,6 @@ print("5-fold cross validation average accuracy: %.3f" % (results.mean()))
 #######################################################
 ####################### SVM ###########################
 #######################################################
-
-######################################################
 # Scale data for SVM training
 scaler = StandardScaler()
 X_tf = scaler.fit_transform(X)
@@ -99,3 +97,5 @@ svm.fit(X_train, y_train)
 # Predict on the test set
 y_pred = svm.predict(X_test)
 y_pred_prob = svm.predict_proba(X_test)
+# AUC
+metrics.roc_auc_score(y_test, y_pred_prob[:,1])
