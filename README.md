@@ -9,9 +9,9 @@ The final training and test sets were written to csv files ('trainingpp.csv' and
 
 ## Algorithms
 Load in the pre-processed training and test datasets.
-I split the training dataset into the training and test subsets for validation (30/70, feel free to try other ratios).
-I've tried 3 classifiers (so far), Logistic Regression, Random Forest (500 trees) and SVM (RBF, parameters not tuned yet).
-For each method, I first test the prediction error (using AUC as the metric) on the splitted training and test set, then test again using 5-fold cross-validation.
+I split the training dataset into the training and test subsets for validation (70/30, feel free to try other ratios).
+I've tried 3 classifiers (so far): Logistic Regression, Random Forest (500 trees) and SVM (RBF, parameters not tuned yet).
+For each method, I first get the predicted probabilities on the splitted test set, then get the AUC score, then test again using 5-fold cross-validation.
 
 ### AUC Results (so far)
 - Logistic Regression: 0.8? 0.9? (not so good)
