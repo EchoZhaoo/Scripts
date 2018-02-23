@@ -16,10 +16,11 @@ For each method, I first get the predicted probabilities on the splitted test se
 # AUC Results (so far)
 - Logistic Regression: 0.8? 0.9? (not so good)
 - Random Forest: 0.956
+- SVM (default parameters): 0.896
 
 # Next steps
 - Tune parameters for SVM
 - Fit SVM model and get AUC score
 - Can Logistic Regression be improved by feature selection? (took a lot of time, >400 predictors) Default regularization L2, how about L1?
-- Try other classifier (XGBoost, maybe Neural Net?)
+- Try other classifiers (XGBoost, maybe Neural Net?)
 - Try ensembling
