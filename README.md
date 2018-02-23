@@ -13,11 +13,11 @@ I split the training dataset into the training and test subsets for validation (
 I've tried 3 classifiers (so far): Logistic Regression, Random Forest (500 trees) and SVM (RBF, parameters not tuned yet).
 For each method, I first get the predicted probabilities on the splitted test set, then get the AUC score, then test again using 5-fold cross-validation.
 
-### AUC Results (so far)
+# AUC Results (so far)
 - Logistic Regression: 0.8? 0.9? (not so good)
 - Random Forest: 0.956
 
-### Next steps
+# Next steps
 - Tune parameters for SVM
 - Fit SVM model and get AUC score
 - Can Logistic Regression be improved by feature selection? (took a lot of time, >400 predictors) Default regularization L2, how about L1?
