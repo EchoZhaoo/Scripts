@@ -10,17 +10,21 @@ The final training and test sets were written to csv files ('trainingpp.csv' and
 ## Algorithms
 Load in the pre-processed training and test datasets.
 I split the training dataset into the training and test subsets for validation (70/30, feel free to try other ratios).
-I've tried 3 classifiers (so far): Logistic Regression, Random Forest (500 trees) and SVM (RBF, parameters not tuned yet).
+I've tried 4 classifiers (so far): Logistic Regression, Random Forest (500 trees) and SVM (RBF, parameters not tuned yet), XGBoost (parameters not tuned yet).
 For each method, I first get the predicted probabilities on the splitted test set, then get the AUC score, then test again using 5-fold cross-validation.
+
+## Prediction
+Used XGBoost default model, write out .csv file for submission.
 
 # AUC Results (so far)
 - Logistic Regression: 0.8? 0.9? (not so good)
 - Random Forest: 0.956
 - SVM (default parameters): 0.896
+- XGBoost (default parameters): 0.9662
 
 # Next steps
 - Tune parameters for SVM
 - Fit SVM model and get AUC score
 - Can Logistic Regression be improved by feature selection? (took a lot of time, >400 predictors) Default regularization L2, how about L1?
-- Try other classifiers (XGBoost, maybe Neural Net?)
+- Try other classifiers ( Neural Net?)
 - Try ensembling
