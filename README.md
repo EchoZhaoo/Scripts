@@ -14,8 +14,8 @@ I've tried 4 classifiers (so far): Logistic Regression, Random Forest (500 trees
 For each method, I first get the predicted probabilities on the splitted test set, then get the AUC score, then test again using 5-fold cross-validation.
 
 ## Prediction
-Used XGBoost default model, write out .csv file for submission.\n
-Result: 0.90 on leaderboard\n
+Using XGBoost, write out .csv file for submission.
+Result: 0.90 on leaderboard
 Note: also tried submitting predictions using Random Forest, results not as good.
 
 # AUC Results (so far)
