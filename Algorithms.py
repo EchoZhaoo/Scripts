@@ -72,6 +72,14 @@ scoring = 'roc_auc'
 results = model_selection.cross_val_score(modelCV, X, y, cv=kfold, scoring=scoring)
 print("5-fold cross validation average accuracy: %.3f" % (results.mean()))
 
+# Predict on test dataset and write out submission file
+test2 = test.drop(['test_id'],axis=1)
+rfc.fit(X,y)
+y_submit = rfc.predict(test2)
+test['is_female'] = y_submit
+ans = test[['test_id', 'is_female']]
+ans.to_csv('submission3.csv', index=None)
+
 #%%
 #######################################################
 ####################### SVM ###########################
