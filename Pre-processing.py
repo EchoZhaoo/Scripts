@@ -43,6 +43,16 @@ train_tf = train_df.apply(lambda x:x.fillna(x.value_counts().index[0]))
 # Check for NA
 train_tf.isnull().sum()
 
+#%% Separate response variables from predictors
+X = train_tf.drop(['is_female'],axis=1)
+y = train_tf.is_female
+
+########################################################
+############## CROSS-VALIDATION DATA ###################
+########################################################
+#%% Split the training data into training and test sets for cross-validation
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3)
+
 ########################################################
 ############### TEST DATA ##############################
 ########################################################
@@ -50,12 +60,13 @@ train_tf.isnull().sum()
 test = pd.read_csv('//Files.umn.edu/cse/UmSaveDocs/nguy3409/Documents/test.csv')
 # Subset columns that match training data
 tst_list = df_list.remove('is_female')
+df_list.append("test_id")
 test = test[df_list]
 # Impute missing data with the most frequently appeared value for each column
 test_tf = test.apply(lambda x:x.fillna(x.value_counts().index[0]))
 
 #######################################################
-########## Write output into csv files ################
+###########Write output into csv files ################
 #######################################################
 train_tf.to_csv('trainpp.csv', index=None)
 test_tf.to_csv('testpp.csv', index=None)
