@@ -14,17 +14,19 @@ I've tried 4 classifiers (so far): Logistic Regression, Random Forest (500 trees
 For each method, I first get the predicted probabilities on the splitted test set, then get the AUC score, then test again using 5-fold cross-validation.
 
 ## Prediction
-Used XGBoost default model, write out .csv file for submission.
+Used XGBoost default model, write out .csv file for submission.\n
+Result: 0.90 on leaderboard\n
+Note: also tried submitting predictions using Random Forest, results not as good.
 
 # AUC Results (so far)
 - Logistic Regression: 0.8? 0.9? (not so good)
 - Random Forest: 0.956
 - SVM (default parameters): 0.896
-- XGBoost (default parameters): 0.9662
+- XGBoost (tuned): ~0.95
 
 # Next steps
 - Tune parameters for SVM
 - Fit SVM model and get AUC score
-- Can Logistic Regression be improved by feature selection? (took a lot of time, >400 predictors) Default regularization L2, how about L1?
+- Can Logistic Regression be improved by feature selection? (took a lot of time, >400 predictors)
 - Try other classifiers ( Neural Net?)
 - Try ensembling
